@@ -3092,10 +3092,37 @@ RENDERERS.teacher = function () { renderTeacher(); maybeExternalCoach(); };
 function bindEvents() {
   /* navigation */
   document.addEventListener('click', (e) => {
+    const toggleNav = e.target.closest('#navToggle') || e.target.closest('#bnMoreBtn');
+    if (toggleNav) {
+      const sb = $('#sidebar');
+      const sc = $('#scrim');
+      if (sb) sb.classList.toggle('is-open');
+      if (sc) sc.hidden = !sb.classList.contains('is-open');
+      return;
+    }
+    if (e.target.closest('#scrim')) {
+      const sb = $('#sidebar');
+      if (sb) sb.classList.remove('is-open');
+      $('#scrim').hidden = true;
+      return;
+    }
+
     const nav = e.target.closest('[data-nav]');
-    if (nav) return go(nav.dataset.nav);
+    if (nav) {
+      const sb = $('#sidebar');
+      if (sb) sb.classList.remove('is-open');
+      const sc = $('#scrim');
+      if (sc) sc.hidden = true;
+      return go(nav.dataset.nav);
+    }
     const jump = e.target.closest('[data-nav-jump]');
-    if (jump) return go(jump.dataset.navJump);
+    if (jump) {
+      const sb = $('#sidebar');
+      if (sb) sb.classList.remove('is-open');
+      const sc = $('#scrim');
+      if (sc) sc.hidden = true;
+      return go(jump.dataset.navJump);
+    }
 
     const add = e.target.closest('[data-add]');
     if (add) { $('#fabMenu').hidden = true; return openForm(add.dataset.add); }
@@ -3447,14 +3474,14 @@ function initLiveClock() {
   if (!el) return;
   const update = () => {
     const now = new Date();
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const isMobile = window.innerWidth <= 600;
+    const days = isMobile ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const day = days[now.getDay()];
     const date = now.getDate();
     const month = months[now.getMonth()];
-    const year = now.getFullYear();
-    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-    el.textContent = `${day}, ${date} ${month} ${year} · ${timeStr}`;
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+    el.textContent = isMobile ? `${day}, ${date} ${month} · ${timeStr}` : `${day}, ${date} ${month} ${now.getFullYear()} · ${timeStr}`;
   };
   update();
   setInterval(update, 1000);
