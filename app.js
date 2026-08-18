@@ -933,6 +933,11 @@ function renderDashboard() {
   const part = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
   $('#greeting').textContent = part + ', ' + (state.settings.name || 'Pratham').split(' ')[0] + ' 👋';
 
+  const dObj = new Date();
+  const fullDateStr = dObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  const viewSub = $('.view[data-view="dashboard"] .view-sub');
+  if (viewSub) viewSub.textContent = fullDateStr + ' · IELTS 7.0+ · German A1 → B1 · Germany 2027';
+
   const cur = currentScores(), tgt = targets();
   const phase = currentPhase();
   const d = countdownDays();
@@ -3474,14 +3479,15 @@ function initLiveClock() {
   if (!el) return;
   const update = () => {
     const now = new Date();
-    const isMobile = window.innerWidth <= 600;
-    const days = isMobile ? ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const day = days[now.getDay()];
-    const date = now.getDate();
-    const month = months[now.getMonth()];
+    const isMobile = window.innerWidth <= 768;
     const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-    el.textContent = isMobile ? `${day}, ${date} ${month} · ${timeStr}` : `${day}, ${date} ${month} ${now.getFullYear()} · ${timeStr}`;
+    if (isMobile) {
+      el.textContent = timeStr;
+    } else {
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      el.textContent = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} · ${timeStr}`;
+    }
   };
   update();
   setInterval(update, 1000);
