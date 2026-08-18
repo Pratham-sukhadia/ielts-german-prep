@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pratham's IELTS + German Coach</title>
+<meta name="description" content="Personal IELTS 7.0+ and German A1 to B1 preparation command centre for Pratham Sukhadia.">
+<meta name="theme-color" content="#070A14">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Canvas removed for brutalist CSS background -->
+
+<header class="topbar-brutalist">
+  <div class="topbar-main">
+    <div class="brand-brutalist">
+      <div class="brand-logo">IELTS PRO</div>
+      <div class="brand-info">
+        <div class="brand-name">PRATHAM SUKHADIA</div>
+        <div class="brand-date" id="liveClockBrutalist">--</div>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <div class="phase-box" id="phaseChip">
+        <span class="phase-letter">P</span>
+        <span class="phase-num">1</span>
+      </div>
+      <button class="square-btn" id="themeBtn" aria-label="Switch theme"><i data-lucide="moon">🌓</i></button>
+      <button class="square-btn" id="searchBtn" aria-label="Search"><i data-lucide="search">🔍</i></button>
+      <button class="square-btn nav-toggle" id="navToggle" aria-label="Open menu"><i data-lucide="menu"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SIDEBAR ============ -->
+<nav class="sidebar" id="sidebar" aria-label="Sections">
+  <ul class="nav-list">
+    <li><button class="nav-item is-active" data-nav="dashboard"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></button></li>
+    <li><button class="nav-item" data-nav="today"><i data-lucide="sun"></i><span>Today</span></button></li>
+    <li><button class="nav-item" data-nav="resources"><i data-lucide="library"></i><span>Resources</span></button></li>
+    <li><button class="nav-item" data-nav="scorelogger"><i data-lucide="clipboard-pen"></i><span>Score Logger</span></button></li>
+    <li><button class="nav-item" data-nav="ielts"><i data-lucide="target"></i><span>IELTS Hub</span></button></li>
+    <li><button class="nav-item" data-nav="reading"><i data-lucide="book-open"></i><span>Reading Lab</span></button></li>
+    <li><button class="nav-item" data-nav="writing"><i data-lucide="pen-line"></i><span>Writing Lab</span></button></li>
+    <li><button class="nav-item" data-nav="listening"><i data-lucide="headphones"></i><span>Listening Lab</span></button></li>
+    <li><button class="nav-item" data-nav="speaking"><i data-lucide="mic"></i><span>Speaking Lab</span></button></li>
+    <li><button class="nav-item" data-nav="flt"><i data-lucide="clipboard-check"></i><span>FLT / Mock Tests</span></button></li>
+    <li><button class="nav-item" data-nav="german"><i data-lucide="languages"></i><span>German</span></button></li>
+    <li><button class="nav-item" data-nav="vocab"><i data-lucide="book-marked"></i><span>Vocabulary</span></button></li>
+    <li><button class="nav-item" data-nav="pronunciation"><i data-lucide="audio-lines"></i><span>Pronunciation</span></button></li>
+    <li><button class="nav-item" data-nav="teacher"><i data-lucide="graduation-cap"></i><span>Daily Teacher</span></button></li>
+    <li><button class="nav-item" data-nav="mistakes"><i data-lucide="triangle-alert"></i><span>Mistake Book</span></button></li>
+    <li><button class="nav-item" data-nav="analytics"><i data-lucide="chart-line"></i><span>Analytics</span></button></li>
+    <li><button class="nav-item" data-nav="calendar"><i data-lucide="calendar-days"></i><span>Study Calendar</span></button></li>
+    <li><button class="nav-item" data-nav="germany"><i data-lucide="flag"></i><span>Germany 2027</span></button></li>
+    <li><button class="nav-item" data-nav="documents"><i data-lucide="folder-check"></i><span>Documents</span></button></li>
+    <li><button class="nav-item" data-nav="data"><i data-lucide="arrow-down-up"></i><span>Import / Export</span></button></li>
+    <li><button class="nav-item" data-nav="settings"><i data-lucide="settings"></i><span>Settings</span></button></li>
+  </ul>
+  <div class="sidebar-foot">
+    <div class="mission-badge">
+      <span class="mission-title">Mission: Germany 2027 🇩🇪</span>
+      <span class="mission-line">IELTS 7.0+ &middot; German A1 &rarr; B1</span>
+      <span class="mission-line">Master's &middot; <em id="missionStatus">In progress</em></span>
+    </div>
+  </div>
+</nav>
+<div class="scrim" id="scrim" hidden></div>
+
+<!-- ============ MAIN ============ -->
+<main id="main" class="main">
+
+  <!-- ---------- DASHBOARD ---------- -->
+  <section class="view is-active" data-view="dashboard">
+    <div class="view-head">
+      <h1 id="greeting">Good morning, Pratham 👋</h1>
+      <p class="view-sub">Your goal: IELTS 7.0+ &middot; German A1 &rarr; B1 &middot; Germany 2027</p>
+    </div>
+
+    <div class="grid grid-hero">
+      <article class="card card-readiness">
+        <header class="card-head">
+          <h2>Personal Preparation Readiness</h2>
+          <button class="ghost-btn" data-help="readiness" aria-label="How this is calculated"><i data-lucide="info"></i></button>
+        </header>
+        <div class="readiness-wrap">
+          <div class="ring" id="readinessRing" role="img" aria-label="Readiness">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+              <circle class="ring-fill" cx="60" cy="60" r="52" id="ringFill"></circle>
+            </svg>
+            <div class="ring-label"><span id="readinessPct">0%</span><small>readiness</small></div>
+          </div>
+          <ul class="readiness-parts" id="readinessParts"></ul>
+        </div>
+        <p class="fineprint">Not an official IELTS prediction. This is a personal preparation metric built from your own logged data.</p>
+      </article>
+
+      <article class="card card-oneThing">
+        <header class="card-head"><h2>If you do only ONE thing today</h2></header>
+        <p class="one-thing" id="oneThing">Log your first practice session to unlock recommendations.</p>
+        <div class="card-actions">
+          <button class="btn btn-primary" data-nav-jump="today">Open today's plan</button>
+          <button class="btn" data-nav-jump="resources"><i data-lucide="library"></i> View resources</button>
+          <button class="btn" data-nav-jump="teacher">Ask the teacher</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="stat-grid" id="statGrid"></div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Band 7 roadmap</h2><span class="muted small">current &rarr; target</span></header>
+        <div id="roadmapBars" class="roadmap"></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Today's mission</h2><button class="ghost-btn" data-nav-jump="today">Open <i data-lucide="arrow-right"></i></button></header>
+        <ul class="mini-tasks" id="dashTasks"></ul>
+        <div class="success-wrap">
+          <div class="success-head"><span>Today's success score</span><strong id="successPct">0%</strong></div>
+          <div class="bar"><div class="bar-fill" id="successBar"></div></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Score trend</h2><span class="muted small">overall band vs target</span></header>
+        <div class="chart-box"><canvas id="dashChart"></canvas></div>
+        <p class="empty-inline" id="dashChartEmpty">No historical data yet. Add a score in the IELTS section to start the graph.</p>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Teacher recommendation</h2></header>
+        <div id="dashTeacher" class="teacher-brief"></div>
+        <div class="card-actions"><button class="btn" data-nav-jump="teacher">Full lesson brief</button></div>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head"><h2>Today's German video</h2><span class="chip chip-soft" id="germanVideoLevel">A1</span></header>
+      <div class="video-suggest" id="germanVideoSuggest"></div>
+    </article>
+  </section>
+
+  <!-- ---------- TODAY ---------- -->
+  <section class="view" data-view="today">
+    <div class="view-head">
+      <h1>Today</h1>
+      <p class="view-sub" id="todayMeta"></p>
+    </div>
+
+    <div class="grid grid-2">
+      <article class="card card-class">
+        <header class="card-head"><h2>Mandatory IELTS class</h2></header>
+        <p class="class-name" id="todayClass">—</p>
+        <p class="muted small" id="todayClassNote"></p>
+        <div class="timeline" id="daySchedule"></div>
+      </article>
+      <article class="card">
+        <header class="card-head">
+          <h2>Study mode</h2>
+          <div class="seg" role="group" aria-label="Study mode">
+            <button class="seg-btn" data-mode="full">Full day</button>
+            <button class="seg-btn" data-mode="normal">Normal</button>
+            <button class="seg-btn" data-mode="busy">Busy</button>
+          </div>
+        </header>
+        <p class="muted small" id="modeNote"></p>
+        <div class="top3">
+          <h3>Top 3 things to do today</h3>
+          <ol id="top3List"></ol>
+        </div>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Today's plan</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm" id="regenPlan"><i data-lucide="refresh-cw"></i> Rebuild plan</button>
+        </div>
+      </header>
+      <ul class="task-list" id="taskList"></ul>
+      <p class="empty-inline" id="taskEmpty" hidden>No tasks for today. Rebuild the plan to generate them.</p>
+    </article>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Library session</h2></header>
+        <div class="timer-box">
+          <div class="timer-display" id="timerDisplay">00:00</div>
+          <div class="timer-row">
+            <label class="field field-sm">
+              <span>Focus</span>
+              <select id="timerFocus">
+                <option>Reading</option><option>Writing</option><option>Listening</option>
+                <option>Speaking</option><option>Vocabulary</option><option>German</option>
+                <option>University Research</option>
+              </select>
+            </label>
+            <label class="field field-sm">
+              <span>Pomodoro</span>
+              <select id="timerPomodoro">
+                <option value="0">Off (open timer)</option>
+                <option value="25">25 / 5</option>
+                <option value="50">50 / 10</option>
+                <option value="60">60 / 10</option>
+                <option value="custom">Custom…</option>
+              </select>
+            </label>
+          </div>
+          <div class="timer-actions">
+            <button class="btn btn-primary" id="timerStart">Start session</button>
+            <button class="btn" id="timerStop" disabled>Stop and save</button>
+          </div>
+          <p class="muted small" id="timerHint">The timer keeps running while you use other sections.</p>
+        </div>
+        <div class="today-mins" id="todayMins"></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>End-of-day check-in</h2></header>
+        <form id="checkinForm" class="form-grid">
+          <label class="field"><span>IELTS target completed</span>
+            <select name="completion"><option value="yes">Yes</option><option value="partial">Partial</option><option value="no">No</option></select>
+          </label>
+          <label class="field"><span>Reading (min)</span><input type="number" name="reading" min="0" step="5" value="0"></label>
+          <label class="field"><span>Writing (min)</span><input type="number" name="writing" min="0" step="5" value="0"></label>
+          <label class="field"><span>Listening (min)</span><input type="number" name="listening" min="0" step="5" value="0"></label>
+          <label class="field"><span>Speaking (min)</span><input type="number" name="speaking" min="0" step="5" value="0"></label>
+          <label class="field"><span>German (min)</span><input type="number" name="german" min="0" step="5" value="0"></label>
+          <label class="field"><span>Vocabulary (words)</span><input type="number" name="words" min="0" value="0"></label>
+          <label class="field"><span>Productivity (1–5)</span><input type="number" name="productivity" min="1" max="5" value="3"></label>
+          <label class="field"><span>Confidence (1–5)</span><input type="number" name="confidence" min="1" max="5" value="3"></label>
+          <label class="field field-wide"><span>Today's biggest problem</span><textarea name="problem" rows="2"></textarea></label>
+          <label class="field field-wide"><span>Tomorrow's priority</span><textarea name="priority" rows="2"></textarea></label>
+          <div class="form-actions"><button class="btn btn-primary" type="submit">Save check-in</button></div>
+        </form>
+        <div id="checkinFeedback" class="motivation" hidden></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ---------- DAILY SCORE LOGGER ---------- -->
+  <section class="view" data-view="scorelogger">
+    <div class="view-head">
+      <h1>Daily Score Logger</h1>
+      <p class="view-sub" id="slTodayInfo"></p>
+    </div>
+
+    <div class="grid grid-2">
+      <!-- Quick log form -->
+      <article class="card">
+        <header class="card-head"><h2>Log today's practice score</h2></header>
+        <form id="slForm" class="form-grid">
+          <label class="field"><span>Date</span><input type="date" name="slDate" required></label>
+          <label class="field"><span>Day</span><input type="text" name="slDay" readonly class="is-readonly"></label>
+          
+          <label class="field"><span>Module</span>
+            <select name="slModule" required>
+              <option value="Listening">Listening</option>
+              <option value="Reading">Reading</option>
+              <option value="Writing">Writing</option>
+              <option value="Speaking">Speaking</option>
+            </select>
+          </label>
+          <label class="field"><span>Band Score</span><input type="number" name="slBand" step="0.5" min="0" max="9" placeholder="e.g. 7.5" required></label>
+          
+          <label class="field"><span>Source</span>
+            <select name="slSource">
+              <option value="Class">Class</option>
+              <option value="Self Practice">Self Practice</option>
+              <option value="Mock Test">Mock Test</option>
+              <option value="Teacher Feedback">Teacher Feedback</option>
+            </select>
+          </label>
+          <label class="field"><span>Topic / Passage</span><input type="text" name="slTopic" placeholder="e.g. Cam 18 Test 2"></label>
+          
+          <label class="field field-wide"><span>Notes</span><textarea name="slNotes" rows="2" placeholder="Any specific mistakes or feedback?"></textarea></label>
+          
+          <div class="form-actions"><button class="btn btn-primary" type="submit">Log Score</button></div>
+        </form>
+      </article>
+
+      <div class="flex-col">
+        <!-- Today's logs -->
+        <article class="card">
+          <header class="card-head"><h2>Logged today</h2></header>
+          <div class="target-list" id="slTodayLogs"></div>
+        </article>
+
+        <!-- Quick Vocab Logger -->
+        <article class="card">
+          <header class="card-head">
+            <h2>Quick Vocabulary Log</h2>
+            <span class="muted small" id="slVocabCount">0 words added today</span>
+          </header>
+          <form id="slVocabForm" class="form-grid" style="grid-template-columns: 1fr;">
+            <div class="flex-row" style="display:flex; gap:0.75rem;">
+              <label class="field" style="flex:1;"><span>Word</span><input type="text" name="vlWord" required></label>
+              <label class="field" style="flex:1;"><span>Category</span>
+                <select name="vlCategory">
+                  <option value="IELTS">IELTS</option>
+                  <option value="German">German</option>
+                </select>
+              </label>
+            </div>
+            <label class="field"><span>Meaning</span><input type="text" name="vlMeaning" required></label>
+            <label class="field"><span>Example Sentence (optional)</span><input type="text" name="vlExample"></label>
+            <div class="form-actions"><button class="btn" type="submit">Add to Notebook</button></div>
+          </form>
+        </article>
+      </div>
+    </div>
+
+    <div class="stat-grid" id="slStats"></div>
+
+    <div class="grid grid-2">
+      <!-- This week's summary -->
+      <article class="card">
+        <header class="card-head"><h2>This Week</h2></header>
+        <div class="timeline" id="slWeekSummary"></div>
+      </article>
+
+      <!-- Full history table -->
+      <article class="card">
+        <header class="card-head">
+          <h2>Score History</h2>
+          <div class="head-actions">
+            <input type="text" class="filter-input" data-filter="dailyScores" placeholder="Filter history...">
+          </div>
+        </header>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Day</th>
+                <th>Module</th>
+                <th>Band</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody id="dailyScoresList"></tbody>
+          </table>
+        </div>
+        <p class="empty-inline" id="dailyScoresEmpty" hidden>No scores match this filter.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ---------- IELTS ---------- -->
+  <section class="view" data-view="ielts">
+    <div class="view-head">
+      <h1>IELTS</h1>
+      <p class="view-sub">Score history, band calculator and target gaps.</p>
+    </div>
+
+    <div class="stat-grid" id="ieltsStats"></div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Overall band</h2><span class="muted small">estimated</span></header>
+        <div class="chart-box"><canvas id="overallChart"></canvas></div>
+        <p class="empty-inline" id="overallEmpty">No historical data yet.</p>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Module progress</h2></header>
+        <div class="chart-box"><canvas id="moduleChart"></canvas></div>
+        <p class="empty-inline" id="moduleEmpty">No historical data yet.</p>
+      </article>
+    </div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head">
+          <h2>Target Gap Analysis</h2>
+          <span class="muted small">Current vs Target</span>
+        </header>
+        <div id="gapTable" class="gap-list"></div>
+      </article>
+
+      <article class="card card-calculator">
+        <header class="card-head">
+          <h2>IELTS Official Band Calculator</h2>
+          <span class="chip chip-soft" id="calcModeBadge">Official Criteria</span>
+        </header>
+
+        <form id="bandCalc" class="form-grid form-grid-4">
+          <div class="field">
+            <label for="calcL">Listening</label>
+            <div class="stepper-input">
+              <button type="button" class="step-btn" data-step="listening" data-dir="-1" aria-label="Decrease Listening">−</button>
+              <input type="number" id="calcL" name="listening" step="0.5" min="0" max="9" value="7.0">
+              <button type="button" class="step-btn" data-step="listening" data-dir="1" aria-label="Increase Listening">+</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="calcR">Reading</label>
+            <div class="stepper-input">
+              <button type="button" class="step-btn" data-step="reading" data-dir="-1" aria-label="Decrease Reading">−</button>
+              <input type="number" id="calcR" name="reading" step="0.5" min="0" max="9" value="5.5">
+              <button type="button" class="step-btn" data-step="reading" data-dir="1" aria-label="Increase Reading">+</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="calcW">Writing</label>
+            <div class="stepper-input">
+              <button type="button" class="step-btn" data-step="writing" data-dir="-1" aria-label="Decrease Writing">−</button>
+              <input type="number" id="calcW" name="writing" step="0.5" min="0" max="9" value="6.0">
+              <button type="button" class="step-btn" data-step="writing" data-dir="1" aria-label="Increase Writing">+</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="calcS">Speaking</label>
+            <div class="stepper-input">
+              <button type="button" class="step-btn" data-step="speaking" data-dir="-1" aria-label="Decrease Speaking">−</button>
+              <input type="number" id="calcS" name="speaking" step="0.5" min="0" max="9" value="6.5">
+              <button type="button" class="step-btn" data-step="speaking" data-dir="1" aria-label="Increase Speaking">+</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Dynamic Calculation Results Panel -->
+        <div class="calc-results-panel">
+          <div class="calc-hero">
+            <div class="calc-hero-val">
+              <span class="calc-hero-label">Overall Band</span>
+              <strong id="calcOut" class="calc-hero-score">6.5</strong>
+              <span id="calcCefrBadge" class="pill pill-ok">B2 (Upper Int.)</span>
+            </div>
+            <div class="calc-hero-stats">
+              <div class="calc-stat-row"><span>Exact Average:</span><b id="calcRawAvg">6.250</b></div>
+              <div class="calc-stat-row"><span>Rounding Rule:</span><span id="calcRuleDesc">Ends in .25 &rarr; Rounded up to .5</span></div>
+              <div class="calc-stat-row"><span>Target 7.0+:</span><span id="calcTargetGap" class="muted">Target gap</span></div>
+              <div class="calc-stat-row"><span>Floor (&ge; 6.0):</span><span id="calcFloorStatus" class="pill pill-crit">Check</span></div>
+            </div>
+          </div>
+
+          <div class="calc-advice" id="calcAdvice">
+            💡 <strong>Score Tip:</strong> Adjust module scores above to see real-time calculation, CEFR level, and strategies to reach your target!
+          </div>
+
+          <div class="card-actions">
+            <button type="button" class="btn btn-primary btn-sm" id="btnLogCalcScore">
+              <i data-lucide="bookmark-plus"></i> Save to Score History
+            </button>
+            <button type="button" class="btn btn-sm" id="btnResetCalc">
+              <i data-lucide="rotate-ccw"></i> Reset to Current
+            </button>
+          </div>
+        </div>
+
+        <p class="fineprint">Official IELTS Rule: Averages ending in .25 round UP to .5; averages ending in .75 round UP to the next whole band.</p>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Score history</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm btn-primary" data-add="ieltsScores"><i data-lucide="plus"></i> Add score</button>
+          <button class="btn btn-sm" data-csv="ieltsScores">CSV</button>
+          <button class="btn btn-sm" data-pdf="scores">PDF</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="ieltsScores"></div>
+    </article>
+  </section>
+
+  <!-- ---------- READING LAB ---------- -->
+  <section class="view" data-view="reading">
+    <div class="view-head">
+      <h1>Reading Lab</h1>
+      <p class="view-sub">Highest priority module. Accuracy, question types and mistakes.</p>
+    </div>
+    <div class="stat-grid" id="readingStats"></div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Question-type accuracy</h2><span class="muted small">🟢 strong · 🟡 average · 🔴 weak</span></header>
+        <div class="heatmap" id="readingHeatmap"></div>
+        <p class="empty-inline" id="readingHeatEmpty">Log a practice session to build the heatmap.</p>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Accuracy trend</h2></header>
+        <div class="chart-box"><canvas id="readingChart"></canvas></div>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Practice sessions</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm btn-primary" data-add="readingSessions"><i data-lucide="plus"></i> Add session</button>
+          <button class="btn btn-sm" data-csv="readingSessions">CSV</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="readingSessions"></div>
+    </article>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Pratham's reading mistake book</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm btn-primary" data-add="readingErrors"><i data-lucide="plus"></i> Add mistake</button>
+          <button class="btn btn-sm" data-csv="readingErrors">CSV</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="readingErrors"></div>
+    </article>
+  </section>
+
+  <!-- ---------- WRITING LAB ---------- -->
+  <section class="view" data-view="writing">
+    <div class="view-head">
+      <h1>Writing Lab</h1>
+      <p class="view-sub">Task 1 and Task 2, four-criterion scoring and your recurring errors.</p>
+    </div>
+    <div class="stat-grid" id="writingStats"></div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Criterion averages</h2></header>
+        <div id="writingCriteria" class="criteria"></div>
+        <div class="opportunity" id="writingOpportunity" hidden></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Recurring error frequency</h2></header>
+        <div id="writingErrorFreq" class="freq-list"></div>
+        <p class="empty-inline" id="writingFreqEmpty">Log writing mistakes to see which ones keep repeating.</p>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Writing entries</h2>
+        <div class="head-actions">
+          <div class="seg" role="group" aria-label="Task filter">
+            <button class="seg-btn is-on" data-wfilter="all">All</button>
+            <button class="seg-btn" data-wfilter="Task 1">Task 1</button>
+            <button class="seg-btn" data-wfilter="Task 2">Task 2</button>
+          </div>
+          <button class="btn btn-sm btn-primary" data-add="writingSessions"><i data-lucide="plus"></i> Add entry</button>
+          <button class="btn btn-sm" data-csv="writingSessions">CSV</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="writingSessions"></div>
+    </article>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Writing error database</h2>
+        <button class="btn btn-sm btn-primary" data-add="writingErrors"><i data-lucide="plus"></i> Add error</button>
+      </header>
+      <div class="table-wrap" data-list="writingErrors"></div>
+    </article>
+  </section>
+
+  <!-- ---------- LISTENING LAB ---------- -->
+  <section class="view" data-view="listening">
+    <div class="view-head">
+      <h1>Listening Lab</h1>
+      <p class="view-sub">Your strongest module. Protect it and push to 7.5–8.0.</p>
+    </div>
+    <div class="stat-grid" id="listeningStats"></div>
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Score trend</h2></header>
+        <div class="chart-box"><canvas id="listeningChart"></canvas></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Error categories</h2></header>
+        <div id="listeningErrorFreq" class="freq-list"></div>
+        <p class="empty-inline" id="listeningFreqEmpty">No listening errors logged yet.</p>
+      </article>
+    </div>
+    <article class="card">
+      <header class="card-head">
+        <h2>Listening sessions</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm btn-primary" data-add="listeningSessions"><i data-lucide="plus"></i> Add session</button>
+          <button class="btn btn-sm" data-csv="listeningSessions">CSV</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="listeningSessions"></div>
+    </article>
+  </section>
+
+  <!-- ---------- SPEAKING LAB ---------- -->
+  <section class="view" data-view="speaking">
+    <div class="view-head">
+      <h1>Speaking Lab</h1>
+      <p class="view-sub">Parts 1–3, recordings and honest self-analysis.</p>
+    </div>
+    <div class="stat-grid" id="speakingStats"></div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Record an answer</h2></header>
+        <div class="rec-box">
+          <div class="rec-row">
+            <label class="field field-sm"><span>Part</span>
+              <select id="recPart"><option>Part 1</option><option>Part 2</option><option>Part 3</option></select>
+            </label>
+            <label class="field field-sm field-grow"><span>Topic</span><input type="text" id="recTopic" placeholder="e.g. Describe a place you like"></label>
+          </div>
+          <div class="rec-actions">
+            <button class="btn btn-primary" id="recStart"><i data-lucide="mic"></i> Start recording</button>
+            <button class="btn" id="recStop" disabled><i data-lucide="square"></i> Stop</button>
+            <span class="rec-timer" id="recTimer">00:00</span>
+          </div>
+          <p class="muted small" id="recHint">Recordings stay on this device inside the app's local database.</p>
+        </div>
+        <div id="recList" class="rec-list"></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Self-analysis checklist</h2></header>
+        <form id="speakCheck" class="check-list">
+          <label><input type="checkbox" name="hesitate"> I hesitated noticeably</label>
+          <label><input type="checkbox" name="repeat"> I repeated words</label>
+          <label><input type="checkbox" name="direct"> I answered the question directly</label>
+          <label><input type="checkbox" name="extend"> I extended my answer</label>
+          <label><input type="checkbox" name="examples"> I used examples</label>
+          <label><input type="checkbox" name="varied"> I used varied vocabulary</label>
+          <label><input type="checkbox" name="complex"> I used complex sentences</label>
+          <label><input type="checkbox" name="grammar"> I repeated grammar mistakes</label>
+        </form>
+        <p class="muted small">Tick the boxes, then attach them to a session with "Add session".</p>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Speaking sessions</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm btn-primary" data-add="speakingSessions"><i data-lucide="plus"></i> Add session</button>
+          <button class="btn btn-sm" data-csv="speakingSessions">CSV</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="speakingSessions"></div>
+    </article>
+  </section>
+
+  <!-- ---------- FLT ---------- -->
+  <section class="view" data-view="flt">
+    <div class="view-head">
+      <h1>Full length tests</h1>
+      <p class="view-sub" id="fltSaturday"></p>
+    </div>
+    <div class="stat-grid" id="fltStats"></div>
+
+    <article class="card">
+      <header class="card-head"><h2>Latest FLT review</h2></header>
+      <div id="fltReview" class="review-box"></div>
+    </article>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>FLT progression</h2></header>
+        <div class="chart-box"><canvas id="fltChart"></canvas></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Saturday cycle</h2></header>
+        <div id="saturdayCycle" class="cycle-list"></div>
+        <label class="field field-sm"><span>Flip cycle (if your class order differs)</span>
+          <select id="satOffset"><option value="0">FLT first</option><option value="1">Review first</option></select>
+        </label>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>FLT log</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm btn-primary" data-add="fltTests"><i data-lucide="plus"></i> Add FLT</button>
+          <button class="btn btn-sm" data-csv="fltTests">CSV</button>
+          <button class="btn btn-sm" data-pdf="flt">PDF</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="fltTests"></div>
+    </article>
+  </section>
+
+  <!-- ---------- VOCABULARY ---------- -->
+  <section class="view" data-view="vocab">
+    <div class="view-head">
+      <h1>My vocabulary</h1>
+      <p class="view-sub">Academic English word bank with flashcards and spaced repetition.</p>
+    </div>
+
+    <article class="card card-lookup">
+      <header class="card-head"><h2>Look up a word</h2></header>
+      <form class="lookup-row" id="lookupForm">
+        <input type="search" id="lookupInput" placeholder="Search a word… e.g. people" autocomplete="off">
+        <button class="btn btn-primary" type="submit"><i data-lucide="search"></i> Look up</button>
+        <button class="btn" type="button" id="lookupWeb">Open web search</button>
+      </form>
+      <div id="lookupResult" class="lookup-result"></div>
+      <p class="fineprint">Uses free dictionary and word-association APIs. If they are unavailable, add the word manually and nothing breaks.</p>
+    </article>
+
+    <div class="stat-grid" id="vocabStats"></div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Flashcards</h2><span class="muted small" id="flashDue"></span></header>
+        <div class="flash-wrap">
+          <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Flip card">
+            <div class="flash-face flash-front"><span id="flashFront">Add words to start</span></div>
+            <div class="flash-face flash-back"><div id="flashBack"></div></div>
+          </div>
+          <div class="flash-actions">
+            <button class="btn btn-sm" data-srs="again">Again</button>
+            <button class="btn btn-sm" data-srs="hard">Hard</button>
+            <button class="btn btn-sm" data-srs="good">Good</button>
+            <button class="btn btn-sm" data-srs="mastered">Mastered</button>
+          </div>
+          <div class="seg seg-center" role="group" aria-label="Deck">
+            <button class="seg-btn is-on" data-deck="ieltsVocabulary">IELTS deck</button>
+            <button class="seg-btn" data-deck="germanVocabulary">German deck</button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Mastery breakdown</h2></header>
+        <div class="chart-box chart-sm"><canvas id="masteryChart"></canvas></div>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Word bank</h2>
+        <div class="head-actions">
+          <input type="search" class="inline-search" data-filter="ieltsVocabulary" placeholder="Filter words…">
+          <button class="btn btn-sm btn-primary" data-add="ieltsVocabulary"><i data-lucide="plus"></i> Add word</button>
+          <button class="btn btn-sm" data-csv="ieltsVocabulary">CSV</button>
+          <button class="btn btn-sm" data-pdf="vocab">PDF</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="ieltsVocabulary"></div>
+    </article>
+  </section>
+
+  <!-- ---------- GERMAN ---------- -->
+  <section class="view" data-view="german">
+    <div class="view-head">
+      <h1>Deutsch</h1>
+      <p class="view-sub">A1 &rarr; B1 for Germany. Lesson of the day, notebook and roadmap.</p>
+    </div>
+    <div class="stat-grid" id="germanStats"></div>
+
+    <article class="card">
+      <header class="card-head"><h2>CEFR roadmap</h2></header>
+      <div class="cefr" id="cefrRoadmap"></div>
+      <div id="cefrGoals" class="cefr-goals"></div>
+    </article>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Today's German lesson</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm" id="germanPrev"><i data-lucide="chevron-left"></i></button>
+          <span class="chip chip-soft" id="germanLessonNo">Lesson 1</span>
+          <button class="btn btn-sm" id="germanNext"><i data-lucide="chevron-right"></i></button>
+        </div>
+      </header>
+      <div id="germanLesson" class="lesson"></div>
+      <div class="card-actions">
+        <button class="btn btn-primary" id="germanSaveWords"><i data-lucide="book-plus"></i> Save these words to my notebook</button>
+        <button class="btn" id="germanComplete"><i data-lucide="check"></i> Mark lesson complete</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>German notebook</h2>
+        <div class="head-actions">
+          <input type="search" class="inline-search" data-filter="germanVocabulary" placeholder="Filter words…">
+          <button class="btn btn-sm btn-primary" data-add="germanVocabulary"><i data-lucide="plus"></i> Add word</button>
+          <button class="btn btn-sm" data-csv="germanVocabulary">CSV</button>
+          <button class="btn btn-sm" data-pdf="germanVocab">PDF</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="germanVocabulary"></div>
+    </article>
+
+    <article class="card">
+      <header class="card-head">
+        <h2>Learn German — video hub</h2>
+        <button class="btn btn-sm btn-primary" data-add="resources" data-preset="german"><i data-lucide="plus"></i> Add resource</button>
+      </header>
+      <div class="chips-row" id="germanResFilters"></div>
+      <div class="res-grid" id="germanResources"></div>
+    </article>
+  </section>
+
+  <!-- ---------- PRONUNCIATION ---------- -->
+  <section class="view" data-view="pronunciation">
+    <div class="view-head">
+      <h1>Pronunciation lab</h1>
+      <p class="view-sub">German sounds, IPA and your own voice for comparison.</p>
+    </div>
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Record a pronunciation</h2></header>
+        <div class="rec-box">
+          <label class="field"><span>German word or phrase</span><input type="text" id="pronWord" placeholder="Guten Morgen"></label>
+          <div class="rec-actions">
+            <button class="btn btn-primary" id="pronStart"><i data-lucide="mic"></i> Record</button>
+            <button class="btn" id="pronStop" disabled><i data-lucide="square"></i> Stop</button>
+            <button class="btn" id="pronSpeak"><i data-lucide="volume-2"></i> Hear it</button>
+            <span class="rec-timer" id="pronTimer">00:00</span>
+          </div>
+          <p class="muted small">"Hear it" uses your device's German voice if one is installed.</p>
+        </div>
+        <div id="pronRecList" class="rec-list"></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Sound guide</h2></header>
+        <div id="soundGuide" class="sound-guide"></div>
+      </article>
+    </div>
+    <article class="card">
+      <header class="card-head">
+        <h2>Pronunciation notebook</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm btn-primary" data-add="pronunciation"><i data-lucide="plus"></i> Add entry</button>
+          <button class="btn btn-sm" data-pdf="pronunciation">PDF</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="pronunciation"></div>
+    </article>
+  </section>
+
+  <!-- ---------- DAILY TEACHER ---------- -->
+  <section class="view" data-view="teacher">
+    <div class="view-head">
+      <h1>Daily teacher</h1>
+      <p class="view-sub">Strict, supportive, and built only from data you have logged.</p>
+    </div>
+    <div class="teach-grid" id="teacherBoard"></div>
+    <article class="card">
+      <header class="card-head"><h2>Teacher mode</h2></header>
+      <div class="mode-box">
+        <label class="field"><span>Engine</span>
+          <select id="teacherMode">
+            <option value="local">Local teacher (rule based, offline)</option>
+            <option value="api">External AI (needs your own proxy endpoint)</option>
+          </select>
+        </label>
+        <label class="field field-wide"><span>Proxy endpoint URL</span><input type="url" id="teacherEndpoint" placeholder="https://your-proxy.example.com/coach"></label>
+        <p class="fineprint">Local mode is the default and needs no internet. External mode posts your summary to an endpoint you control. Never put an API key in this app — keep it behind your own server.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ---------- MISTAKE BOOK ---------- -->
+  <section class="view" data-view="mistakes">
+    <div class="view-head">
+      <h1>Mistake book</h1>
+      <p class="view-sub">Every recorded error in one place. This is where bands are won.</p>
+    </div>
+    <div class="stat-grid" id="mistakeStats"></div>
+    <article class="card">
+      <header class="card-head"><h2>Most frequent mistakes</h2></header>
+      <div id="mistakeFreq" class="freq-list"></div>
+      <p class="empty-inline" id="mistakeFreqEmpty">No mistakes logged yet. Log them honestly — patterns are the point.</p>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2>All mistakes</h2>
+        <div class="head-actions">
+          <div class="seg" role="group" aria-label="Mistake source">
+            <button class="seg-btn is-on" data-mfilter="all">All</button>
+            <button class="seg-btn" data-mfilter="reading">Reading</button>
+            <button class="seg-btn" data-mfilter="writing">Writing</button>
+            <button class="seg-btn" data-mfilter="listening">Listening</button>
+            <button class="seg-btn" data-mfilter="speaking">Speaking</button>
+          </div>
+          <button class="btn btn-sm" id="mistakeReviewed"><i data-lucide="check-check"></i> Mark today's review done</button>
+        </div>
+      </header>
+      <div class="table-wrap" id="mistakeAll"></div>
+    </article>
+  </section>
+
+  <!-- ---------- ANALYTICS ---------- -->
+  <section class="view" data-view="analytics">
+    <div class="view-head">
+      <h1>Analytics</h1>
+      <p class="view-sub">Study behaviour, consistency and improvement.</p>
+    </div>
+    <div class="stat-grid" id="analyticsStats"></div>
+
+    <article class="card">
+      <header class="card-head"><h2>Study heatmap</h2><span class="muted small">last 26 weeks</span></header>
+      <div class="heat-scroll"><div id="studyHeatmap" class="study-heat"></div></div>
+      <div class="heat-legend"><span>less</span><i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span>more</span></div>
+    </article>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Study minutes by skill</h2></header>
+        <div class="chart-box"><canvas id="skillChart"></canvas></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Weekly study hours</h2></header>
+        <div class="chart-box"><canvas id="hoursChart"></canvas></div>
+      </article>
+    </div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Weekly report</h2><button class="btn btn-sm" data-pdf="weekly">PDF</button></header>
+        <div id="weeklyReport" class="report"></div>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>Monthly report</h2><button class="btn btn-sm" data-pdf="monthly">PDF</button></header>
+        <div id="monthlyReport" class="report"></div>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head"><h2>This week's targets</h2><button class="btn btn-sm" id="editTargets"><i data-lucide="pencil"></i> Edit</button></header>
+      <div id="weeklyTargets" class="targets"></div>
+    </article>
+
+    <article class="card">
+      <header class="card-head"><h2>Achievements</h2></header>
+      <div id="achievements" class="ach-grid"></div>
+    </article>
+  </section>
+
+  <!-- ---------- CALENDAR ---------- -->
+  <section class="view" data-view="calendar">
+    <div class="view-head">
+      <h1>Study calendar</h1>
+      <p class="view-sub">Classes, sessions, tests and scores by date.</p>
+    </div>
+    <article class="card">
+      <header class="card-head">
+        <h2 id="calTitle">—</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm" id="calPrev"><i data-lucide="chevron-left"></i></button>
+          <button class="btn btn-sm" id="calToday">Today</button>
+          <button class="btn btn-sm" id="calNext"><i data-lucide="chevron-right"></i></button>
+        </div>
+      </header>
+      <div class="cal-legend">
+        <span class="lg lg-ielts">IELTS class</span><span class="lg lg-study">Study</span>
+        <span class="lg lg-german">German</span><span class="lg lg-flt">FLT</span>
+        <span class="lg lg-review">Review</span><span class="lg lg-germany">Germany</span><span class="lg lg-rest">Rest</span>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div id="calDetail" class="cal-detail" hidden></div>
+    </article>
+  </section>
+
+  <!-- ---------- RESOURCES ---------- -->
+  <section class="view" data-view="resources">
+    <div class="view-head">
+      <h1>Learning Resources Library</h1>
+      <p class="view-sub">All verified IELTS materials, strategies, German A1–B1 courses, and Germany master's application portals.</p>
+    </div>
+    <article class="card">
+      <header class="card-head">
+        <h2>Curated Resources & Strategies (<span id="resCount">0</span> available)</h2>
+        <div class="head-actions">
+          <input type="search" class="inline-search" data-filter="resources" placeholder="Search resources, topics, sources…">
+          <button class="btn btn-sm btn-primary" data-add="resources"><i data-lucide="plus"></i> Add resource</button>
+          <button class="btn btn-sm" data-csv="resources">CSV</button>
+        </div>
+      </header>
+      <div class="chips-row" id="resFilters"></div>
+      <div class="res-grid" id="resourceGrid"></div>
+    </article>
+  </section>
+
+  <!-- ---------- GERMANY 2027 ---------- -->
+  <section class="view" data-view="germany">
+    <div class="view-head">
+      <h1>Germany 2027 🇩🇪</h1>
+      <p class="view-sub">Universities, deadlines and eligibility against your BCA profile.</p>
+    </div>
+    <div class="stat-grid" id="germanyStats"></div>
+    <article class="card">
+      <header class="card-head"><h2>Upcoming deadlines</h2></header>
+      <div id="deadlineList" class="deadlines"></div>
+      <p class="empty-inline" id="deadlineEmpty">No deadlines yet. Add a university with an application deadline.</p>
+    </article>
+    <article class="card">
+      <header class="card-head">
+        <h2>University shortlist</h2>
+        <div class="head-actions">
+          <button class="btn btn-sm btn-primary" data-add="universities"><i data-lucide="plus"></i> Add university</button>
+          <button class="btn btn-sm" data-csv="universities">CSV</button>
+          <button class="btn btn-sm" data-pdf="germany">PDF</button>
+        </div>
+      </header>
+      <div class="table-wrap" data-list="universities"></div>
+    </article>
+    <article class="card">
+      <header class="card-head"><h2>Phase plan</h2></header>
+      <div id="phaseList" class="phase-list"></div>
+    </article>
+  </section>
+
+  <!-- ---------- DOCUMENTS ---------- -->
+  <section class="view" data-view="documents">
+    <div class="view-head">
+      <h1>Documents</h1>
+      <p class="view-sub">Application paperwork and your personal knowledge base.</p>
+    </div>
+    <div class="seg seg-tabs" role="tablist">
+      <button class="seg-btn is-on" data-doctab="checklist">Checklist</button>
+      <button class="seg-btn" data-doctab="notes">My notes</button>
+    </div>
+    <div data-doctabpanel="checklist">
+      <article class="card">
+        <header class="card-head">
+          <h2>Germany document checklist</h2>
+          <div class="head-actions">
+            <span class="chip chip-soft" id="docProgress">0%</span>
+            <button class="btn btn-sm btn-primary" data-add="documents"><i data-lucide="plus"></i> Add document</button>
+          </div>
+        </header>
+        <div id="docList" class="doc-list"></div>
+      </article>
+    </div>
+    <div data-doctabpanel="notes" hidden>
+      <article class="card">
+        <header class="card-head">
+          <h2>My notes</h2>
+          <div class="head-actions">
+            <input type="search" class="inline-search" data-filter="notes" placeholder="Search notes…">
+            <button class="btn btn-sm btn-primary" data-add="notes"><i data-lucide="plus"></i> New note</button>
+          </div>
+        </header>
+        <div id="noteGrid" class="note-grid"></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ---------- IMPORT / EXPORT ---------- -->
+  <section class="view" data-view="data">
+    <div class="view-head">
+      <h1>Import / Export</h1>
+      <p class="view-sub">Your data lives on this device. Back it up like it matters.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <header class="card-head"><h2>Backup and restore</h2></header>
+        <div class="card-actions col">
+          <button class="btn btn-primary" id="backupBtn"><i data-lucide="download"></i> Download backup (JSON)</button>
+          <label class="btn btn-file"><i data-lucide="upload"></i> Restore from backup<input type="file" id="restoreInput" accept="application/json" hidden></label>
+        </div>
+        <p class="fineprint">Clearing browser data wipes local records. Keep a recent JSON backup somewhere safe. Audio recordings are not included in the JSON file.</p>
+      </article>
+      <article class="card">
+        <header class="card-head"><h2>CSV export</h2></header>
+        <div class="card-actions wrap">
+          <button class="btn" data-csv="ieltsScores">IELTS scores</button>
+          <button class="btn" data-csv="fltTests">FLT history</button>
+          <button class="btn" data-csv="ieltsVocabulary">Vocabulary</button>
+          <button class="btn" data-csv="germanVocabulary">German vocabulary</button>
+          <button class="btn" data-csv="studySessions">Study log</button>
+        </div>
+      </article>
+    </div>
+
+    <article class="card">
+      <header class="card-head"><h2>PDF reports</h2></header>
+      <div class="card-actions wrap">
+        <button class="btn" data-pdf="scores">IELTS score history</button>
+        <button class="btn" data-pdf="vocab">Vocabulary</button>
+        <button class="btn" data-pdf="germanVocab">German vocabulary</button>
+        <button class="btn" data-pdf="pronunciation">German pronunciation</button>
+        <button class="btn" data-pdf="flt">FLT history</button>
+        <button class="btn" data-pdf="weekly">Weekly report</button>
+        <button class="btn" data-pdf="monthly">Monthly report</button>
+        <button class="btn" data-pdf="germany">Germany preparation</button>
+        <button class="btn btn-primary" data-pdf="complete">Complete progress report</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <header class="card-head"><h2>Import a PDF</h2></header>
+      <label class="btn btn-file"><i data-lucide="file-up"></i> Choose PDF<input type="file" id="pdfInput" accept="application/pdf" hidden></label>
+      <p class="fineprint">Reads score reports, vocabulary lists and notes in the browser. Nothing is uploaded anywhere, nothing is overwritten until you confirm.</p>
+      <div id="importReview" class="import-review" hidden></div>
+    </article>
+
+    <article class="card card-danger">
+      <header class="card-head"><h2>Reset</h2></header>
+      <button class="btn btn-danger" id="resetBtn"><i data-lucide="trash-2"></i> Erase all local data</button>
+      <p class="fineprint">Permanent. Download a backup first.</p>
+    </article>
+  </section>
+
+  <!-- ---------- SETTINGS ---------- -->
+  <section class="view" data-view="settings">
+    <div class="view-head">
+      <h1>Settings</h1>
+      <p class="view-sub">Targets, dates and preferences.</p>
+    </div>
+    <article class="card">
+      <form id="settingsForm" class="form-grid">
+        <label class="field"><span>Name</span><input type="text" name="name" required></label>
+        <label class="field"><span>IELTS exam date</span><input type="date" name="examDate" required></label>
+        <label class="field"><span>Preparation start</span><input type="date" name="startDate"></label>
+        <label class="field"><span>Target overall band</span><input type="number" name="targetOverall" step="0.5" min="4" max="9"></label>
+        <label class="field"><span>Target listening</span><input type="number" name="targetListening" step="0.5" min="4" max="9"></label>
+        <label class="field"><span>Target reading</span><input type="number" name="targetReading" step="0.5" min="4" max="9"></label>
+        <label class="field"><span>Target writing</span><input type="number" name="targetWriting" step="0.5" min="4" max="9"></label>
+        <label class="field"><span>Target speaking</span><input type="number" name="targetSpeaking" step="0.5" min="4" max="9"></label>
+        <label class="field"><span>Current German level</span>
+          <select name="germanLevel"><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option></select>
+        </label>
+        <label class="field"><span>German target for Germany</span>
+          <select name="germanTarget"><option>A2</option><option>B1</option><option>B2</option></select>
+        </label>
+        <label class="field"><span>Default study mode</span>
+          <select name="mode"><option value="full">Full day</option><option value="normal">Normal</option><option value="busy">Busy</option></select>
+        </label>
+        <label class="field"><span>Daily study target (min)</span><input type="number" name="dailyTarget" min="30" step="15"></label>
+        <label class="field"><span>Theme</span>
+          <select name="theme"><option value="dark">Dark</option><option value="light">Light</option></select>
+        </label>
+        <label class="field"><span>Background animation</span>
+          <select name="bgFx"><option value="on">On</option><option value="off">Off</option></select>
+        </label>
+        <label class="field"><span>Daily reminder</span>
+          <select name="reminder"><option value="off">Off</option><option value="on">On (browser notification)</option></select>
+        </label>
+        <label class="field"><span>Reminder time</span><input type="time" name="reminderTime"></label>
+        <div class="form-actions"><button class="btn btn-primary" type="submit">Save settings</button></div>
+      </form>
+    </article>
+    <article class="card">
+      <header class="card-head"><h2>Storage</h2></header>
+      <div id="storageInfo" class="storage-info"></div>
+    </article>
+  </section>
+
+</main>
+
+<!-- ============ MOBILE BOTTOM NAV ============ -->
+<nav class="bottom-nav" aria-label="Primary Navigation">
+  <button class="bn-item is-active" data-nav="dashboard"><i data-lucide="layout-dashboard"></i><span>Home</span></button>
+  <button class="bn-item" data-nav="today"><i data-lucide="sun"></i><span>Today</span></button>
+  <button class="bn-item" data-nav="scorelogger"><i data-lucide="clipboard-pen"></i><span>Log</span></button>
+  <button class="bn-item" data-nav="ielts"><i data-lucide="target"></i><span>IELTS</span></button>
+  <button class="bn-item" data-nav="german"><i data-lucide="languages"></i><span>German</span></button>
+</nav>
+
+<button class="fab" id="fab" aria-label="Quick add"><i data-lucide="plus"></i></button>
+<div class="fab-menu" id="fabMenu" hidden>
+  <button data-add="ieltsScores">Add score</button>
+  <button data-add="ieltsVocabulary">Add vocabulary</button>
+  <button data-add="germanVocabulary">Add German word</button>
+  <button data-add="readingErrors">Add mistake</button>
+  <button data-add="studySessions">Add study session</button>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <header class="modal-head">
+      <h2 id="modalTitle">—</h2>
+      <button class="icon-btn" id="modalClose" aria-label="Close"><i data-lucide="x"></i></button>
+    </header>
+    <div class="modal-body" id="modalBody"></div>
+    <footer class="modal-foot" id="modalFoot"></footer>
+  </div>
+</div>
+
+<!-- ============ COMMAND PALETTE ============ -->
+<div class="palette" id="palette" hidden>
+  <div class="palette-card" role="dialog" aria-modal="true" aria-label="Search everything">
+    <input type="search" id="paletteInput" placeholder="Search vocabulary, German words, scores, mistakes, notes, resources…" autocomplete="off">
+    <div class="palette-results" id="paletteResults"></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="data.js?v=6"></script>
+<script src="app.js?v=6"></script>
+</body>
+</html>
